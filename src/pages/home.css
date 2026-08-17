@@ -1,0 +1,436 @@
+/* ===== Home page (ported from culac.ca FrHomeView) ===== */
+
+.page-home,
+.page-home *,
+.page-home *::before,
+.page-home *::after {
+  background-color: var(--bg-color);
+}
+
+.page-home .page-body {
+  padding-bottom: 6em;
+}
+
+.page-home .intro {
+  display: block;
+}
+
+.page-home .intro .intro-content .main-logo {
+  display: block;
+  width: 80%;
+  height: auto;
+  margin: auto;
+  padding-top: 3em;
+  animation: fly-in-left 1.8s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+@keyframes fly-in-left {
+  0% {
+    transform: translate(-200vw);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fly-in-right {
+  0% {
+    transform: translate(200vw);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+.page-home .intro .intro-content h1 {
+  font-size: clamp(1.5rem, 2vw, 3rem);
+  text-align: center;
+  font-weight: 500;
+  margin: 2em 1em;
+  animation: fly-up 1.5s ease-in-out forwards;
+  animation-delay: 0.8s;
+  opacity: 0;
+}
+
+.page-home .intro .intro-pic {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  top: 0;
+  position: relative;
+  animation: fly-up 1.5s ease-in-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+.page-home .text-slider {
+  overflow: hidden;
+}
+
+.page-home .text-slider .text-slider-content {
+  padding: 1.5em 0;
+  white-space: nowrap;
+  animation: slide-text 15s infinite linear;
+  animation-delay: -3s;
+}
+
+@keyframes slide-text {
+  0% {
+    transform: translate(50%);
+  }
+  to {
+    transform: translate(-100%);
+  }
+}
+
+.page-home .text-slider .text-slider-content span {
+  font-size: clamp(1.5rem, 2vw, 4rem);
+  font-weight: 500;
+  font-family: Phudu, sans-serif;
+  color: var(--orange);
+  padding: 0 1em;
+}
+
+/* ===== Story sections (ported from the WordPress blocks) ===== */
+
+.story {
+  background-color: var(--bg-color);
+}
+
+.story * {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+.story > h1 {
+  display: block !important;
+  text-align: center !important;
+  font-size: clamp(3.75rem, 4.5vw, 5rem) !important;
+  font-weight: 500 !important;
+  color: var(--orange) !important;
+  margin-bottom: 1rem !important;
+  animation: fly-up ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 55%;
+  opacity: 0;
+}
+
+.story .wp-content {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+}
+
+.story h2 {
+  font-size: clamp(2.5rem, 2.5vw, 3rem) !important;
+  text-align: left !important;
+  font-weight: 500 !important;
+  overflow: hidden !important;
+  max-width: 100% !important;
+  color: var(--orange) !important;
+  margin: 1em !important;
+  animation: fly-up ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 50%;
+  opacity: 0;
+}
+
+.story p {
+  font-size: clamp(0.9rem, 1vw, 1.25rem) !important;
+  text-align: left !important;
+  margin: 1em 3em 3em !important;
+  animation: fly-up ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 55%;
+  opacity: 0;
+}
+
+.story img {
+  display: block;
+  width: 85% !important;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: cover !important;
+  height: auto;
+  margin: 2em !important;
+  border-radius: 10%;
+  animation: shadow-in ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 50%;
+}
+
+/* ===== Explore ===== */
+
+.page-home #explore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 60vh;
+  padding-bottom: 10em;
+}
+
+.page-home #explore svg {
+  width: 130%;
+  max-width: 1200px;
+}
+
+.page-home #explore path {
+  fill: transparent !important;
+}
+
+.page-home #explore .banhmi {
+  width: 70%;
+  margin: auto;
+  margin-top: -5rem;
+  margin-bottom: 3em;
+  display: block;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.page-home #explore .banhmi:hover {
+  animation: wiggle 1.8s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(5deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+.page-home #explore text {
+  text-transform: uppercase;
+  text-align: center;
+  font-family: Phudu, sans-serif;
+  font-size: clamp(3rem, 4vw, 5rem);
+  font-weight: 500;
+  fill: var(--orange);
+  animation: fly-up ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 35%;
+  opacity: 0;
+}
+
+.page-home #explore button {
+  background-color: var(--orange);
+  padding: 1rem;
+  border: none;
+  border-radius: 15px;
+  font-family: Phudu, sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2vw, 3rem);
+  cursor: pointer;
+  animation: fly-up ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 35%;
+  opacity: 0;
+}
+
+.page-home #explore .see-menu {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--bg-color);
+  font-family: Phudu, sans-serif;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2vw, 3rem);
+}
+
+.page-home #explore a {
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.page-home #explore a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1.5px;
+  background: var(--bg-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.page-home #explore a:hover::after {
+  transform: scaleX(1);
+}
+
+/* ===== Instagram carousel ===== */
+
+.page-home .instagram-carousel {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.page-home .carousel-item {
+  flex: 0 0 85%;
+  scroll-snap-align: center;
+  min-height: 500px;
+  padding: 0 10px;
+}
+
+.page-home .instagram-media {
+  min-width: 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+/* ===== Desktop ===== */
+
+@media (min-width: 768px) {
+  .page-home .intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  .page-home .intro .intro-content .main-logo {
+    display: block;
+    width: 50%;
+    height: auto;
+    margin: 90px auto auto;
+  }
+
+  .page-home .intro .intro-content h1 {
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
+    text-align: center;
+    max-width: 30ch;
+    font-weight: 500;
+    animation: fly-up 1.5s ease-in-out forwards;
+    animation-delay: 1.8s;
+    opacity: 0;
+  }
+
+  .page-home .intro .intro-pic-container {
+    margin-top: -96px;
+    padding-top: 96px;
+    width: 100%;
+    height: 119vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    overflow: hidden;
+  }
+
+  .page-home .intro .intro-pic-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    animation: fly-in-right 1.8s cubic-bezier(0.25, 1, 0.5, 1) both;
+  }
+
+  .page-home .text-slider .text-slider-content {
+    margin: 1.5em 4em;
+    white-space: nowrap;
+    animation: slide-text 25s infinite linear;
+    animation-delay: -3s;
+  }
+
+  .page-home .text-slider .text-slider-content span {
+    font-size: clamp(1.5rem, 2.5vw, 4rem);
+  }
+
+  .page-home .star {
+    font-size: 75pt;
+  }
+
+  .page-home .page-body {
+    padding: 0 0 10em;
+  }
+
+  .page-home #explore {
+    padding-bottom: 4em;
+  }
+
+  .page-home #explore svg {
+    width: 95%;
+    max-width: 1100px;
+  }
+
+  .page-home #explore .banhmi {
+    width: 90%;
+    margin-top: -12rem;
+  }
+
+  .page-home #explore text {
+    font-size: clamp(2.2rem, 3vw, 4rem);
+  }
+
+  .story > h1 {
+    margin-bottom: 3rem !important;
+  }
+
+  .story .wp-content {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .story h2 {
+    font-size: clamp(1.5rem, 2.5vw, 3rem) !important;
+    max-width: 30ch !important;
+    margin-left: 1em !important;
+    padding-top: 4em !important;
+  }
+
+  .story p {
+    font-size: clamp(1rem, 1vw, 1.25rem) !important;
+    max-width: 47ch !important;
+    margin-left: 4em !important;
+    margin-top: 2em !important;
+  }
+
+  .story img {
+    width: 90% !important;
+  }
+
+  .story-flip .wp-content > :nth-child(1) {
+    order: 2;
+  }
+
+  .story-flip .wp-content > :nth-child(2) {
+    order: 1;
+  }
+
+  .story-flip h2 {
+    margin-left: 2em !important;
+  }
+
+  .story-flip p {
+    margin-left: 6em !important;
+  }
+
+  .page-home .carousel-item {
+    flex: 0 0 31%;
+    min-height: 600px;
+  }
+}

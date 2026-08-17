@@ -1,0 +1,298 @@
+/* ===== Catering page (ported from culac.ca FrCateringView) ===== */
+
+.page-catering,
+.page-catering *,
+.page-catering *::before,
+.page-catering *::after {
+  background-color: var(--bg-color);
+}
+
+.page-catering .page-body {
+  min-height: 50vh;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.page-catering h1 {
+  text-align: center;
+  margin: 2rem;
+  font-size: clamp(2rem, 3vw, 3.5rem);
+  font-weight: 600;
+  color: var(--orange);
+}
+
+.page-catering #header {
+  display: grid;
+  place-items: center;
+}
+
+.page-catering #header h1 {
+  animation: fly-up 1.5s ease-in-out forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.page-catering #header p {
+  font-family: Inter, sans-serif;
+  text-align: center;
+  font-size: clamp(0.9rem, 1vw, 1.25rem);
+  margin: 1em 3rem;
+  margin-bottom: 3em;
+  color: var(--black);
+  animation: fly-up 1.5s ease-in-out forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+}
+
+.page-catering main {
+  padding: 3em 0 2em;
+}
+
+.page-catering main .container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.page-catering main h1 {
+  text-align: center;
+  font-weight: 500;
+  animation: fly-up ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 55%;
+  opacity: 0;
+}
+
+.page-catering main p {
+  text-align: left;
+  padding: 0 3em;
+  font-size: clamp(0.9rem, 1vw, 1.25rem);
+  animation: fly-up ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 55%;
+  opacity: 0;
+}
+
+.page-catering main .cater-pic {
+  display: block;
+  margin: 0 auto;
+  max-width: 320px;
+  width: 90%;
+  height: auto;
+  border-radius: 10%;
+  animation: shadow-in ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 50%;
+}
+
+.page-catering main #info {
+  margin: 4em auto;
+  animation: fly-up ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 55%;
+  opacity: 0;
+}
+
+.page-catering main #info details {
+  font-family: Inter, sans-serif;
+  font-size: clamp(0.9rem, 1vw, 1.25rem);
+  color: var(--black);
+  margin: 1em 3rem;
+  border: none;
+}
+
+.page-catering main #info details summary {
+  margin-bottom: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  list-style: none;
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
+}
+
+.page-catering main #info hr {
+  border: 0;
+  height: 0.4px;
+  background-color: var(--black);
+  margin: 1em 2.5rem;
+}
+
+.page-catering main button {
+  background-color: var(--orange);
+  padding: 1rem;
+  margin-left: 2.5rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 15px;
+  font-family: Phudu, sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2vw, 3rem);
+  cursor: pointer;
+  animation: fly-up ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 35%;
+  opacity: 0;
+}
+
+.page-catering main button a {
+  position: relative;
+  transition: color 0.3s ease;
+  margin: 0 auto;
+  display: block;
+  text-align: left;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--bg-color);
+  font-family: Phudu, sans-serif;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: clamp(1.25rem, 1.5vw, 2rem);
+}
+
+.page-catering main button a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1.5px;
+  background: var(--bg-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.page-catering main button a:hover::after {
+  transform: scaleX(1);
+}
+
+/* ===== Extra sections from the SS26 catering deck ===== */
+
+.page-catering .extra {
+  margin: 3em auto 0;
+  max-width: 900px;
+}
+
+.page-catering .extra > h1 {
+  animation: fly-up ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 55%;
+  opacity: 0;
+}
+
+.page-catering .extra .note {
+  text-align: center;
+  color: var(--orange);
+  padding: 0 3em;
+  margin-bottom: 2em;
+}
+
+.page-catering .extra ul {
+  list-style: none;
+  margin: 0 3rem 2em;
+}
+
+.page-catering .extra ul li {
+  font-family: Inter, sans-serif;
+  font-weight: 350;
+  font-size: clamp(0.9rem, 1vw, 1.25rem);
+  color: var(--black);
+  margin-bottom: 0.8em;
+  text-align: center;
+}
+
+.page-catering .policies-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2em;
+  margin: 2em 3rem;
+}
+
+.page-catering .policies-grid h2 {
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  color: var(--orange);
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 0.4em;
+  text-align: center;
+}
+
+.page-catering .policies-grid p {
+  text-align: center;
+  padding: 0;
+  animation: none;
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .page-catering .page-body {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .page-catering h1 {
+    margin-top: 3rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  .page-catering #header p {
+    max-width: 55ch;
+  }
+
+  .page-catering main {
+    padding: 3rem 0;
+  }
+
+  .page-catering main p {
+    font-size: clamp(0.9rem, 1vw, 1.25rem);
+    text-align: center;
+  }
+
+  .page-catering main .container {
+    grid-template-columns: 1fr;
+    row-gap: 3em;
+  }
+
+  .page-catering main .container-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 3em;
+    align-items: center;
+  }
+
+  .page-catering main .cater-pic {
+    max-width: 550px;
+    border-radius: 15px;
+  }
+
+  .page-catering main #info {
+    margin-top: 5em;
+  }
+
+  .page-catering main #info details {
+    margin: 1em 2rem;
+    font-weight: 350;
+  }
+
+  .page-catering main #info details summary {
+    font-weight: 500;
+    font-size: clamp(0.9rem, 1vw, 1.25rem);
+  }
+
+  .page-catering main #info hr {
+    margin: 0 2rem;
+  }
+
+  .page-catering main button {
+    margin-left: 1.5rem;
+  }
+
+  .page-catering main button a {
+    font-size: clamp(1rem, 1.5vw, 2rem);
+  }
+
+  .page-catering .policies-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

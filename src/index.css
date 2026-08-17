@@ -1,0 +1,413 @@
+@import "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Phudu:wght@300..900&display=swap";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+/* ===== Base (ported from culac.ca) ===== */
+
+:root {
+  --orange: #f04a24;
+  --black: #212121;
+  --bg-color: #f9f4f0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Phudu, sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+}
+
+p {
+  font-family: Inter, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
+}
+
+.star {
+  font-size: 96pt;
+  color: var(--orange);
+  background-color: transparent;
+  text-align: center;
+  margin: 0;
+  font-family: Phudu, sans-serif;
+}
+
+@keyframes fly-up {
+  0% {
+    transform: translateY(2vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shadow-in {
+  0% {
+    box-shadow: 2px 3px 0 var(--orange);
+    opacity: 0.2;
+  }
+  to {
+    box-shadow: 12px 16px 0 var(--orange);
+    opacity: 1;
+  }
+}
+
+/* ===== Header / nav ===== */
+
+.site-header {
+  background-color: var(--bg-color);
+}
+
+.site-header .nav-desktop {
+  display: none;
+}
+
+.site-header .nav-mobile {
+  display: grid;
+  grid-template-columns: 75% 12% 12%;
+  align-items: center;
+  background-color: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1em;
+}
+
+.site-header .nav-mobile #en-btn {
+  cursor: pointer;
+  background-color: var(--bg-color);
+  padding: 10px 0;
+  border-color: var(--orange);
+  color: var(--orange);
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 2vw, 2rem);
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1.8px;
+  width: 40px;
+  height: 40px;
+}
+
+.site-header .nav-mobile .nav-logo {
+  height: auto;
+  width: clamp(100px, 25vw, 150px);
+}
+
+.site-header .nav-mobile .hamburger {
+  position: fixed;
+  overflow: hidden;
+  color: var(--black);
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  background: none;
+  background-color: transparent;
+  z-index: 200;
+}
+
+.site-header .nav-mobile .hamburger .menuIcon {
+  position: sticky;
+  display: block;
+  font-size: clamp(2rem, 4vw, 5rem);
+  background-color: transparent;
+}
+
+.mobile-nav-page {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-color);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: slide-fade 0.35s ease-out;
+}
+
+@keyframes slide-fade {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobile-nav-page .close-btn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.mobile-nav-page nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.mobile-nav-page nav a {
+  font-family: Phudu, sans-serif;
+  text-align: center;
+  font-weight: 500;
+  font-size: 2rem;
+  color: var(--orange);
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 96px;
+    z-index: 100;
+    background-color: transparent !important;
+    margin-bottom: 5em;
+  }
+
+  .site-header .nav-mobile {
+    display: none;
+  }
+
+  .site-header .nav-desktop {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    font-family: Inter, sans-serif;
+    padding: 1em 2em;
+    list-style-type: none;
+    font-size: clamp(0.5rem, 1.2vw, 1rem);
+    font-weight: 500;
+    align-items: center;
+  }
+
+  .site-header .nav-desktop .nav-links-left {
+    color: var(--black);
+    list-style-type: none;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: start;
+    gap: 4rem;
+    text-align: center;
+  }
+
+  .site-header .nav-desktop .nav-links-left li {
+    list-style-type: none;
+    align-items: center;
+  }
+
+  .site-header .nav-desktop .nav-links-left .nav-logo {
+    height: auto;
+    width: clamp(100px, 10vw, 150px);
+  }
+
+  .site-header .nav-desktop .nav-links-left li a {
+    position: relative;
+    text-decoration: none;
+    color: var(--black);
+    text-align: center;
+    transition: color 0.3s ease;
+  }
+
+  .site-header .nav-desktop .nav-links-left li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 1.5px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .site-header .nav-desktop .nav-links-left li a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .site-header .nav-desktop .nav-links-right {
+    color: var(--orange);
+    list-style-type: none;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: end;
+    gap: 3rem;
+    text-align: right;
+  }
+
+  .site-header .nav-desktop .nav-links-right li {
+    text-align: right;
+    list-style-type: none;
+  }
+
+  .site-header .nav-desktop .nav-links-right #en-btn {
+    cursor: pointer;
+    padding: 8px 10px;
+    background-color: var(--bg-color);
+    border-color: var(--orange);
+    color: var(--orange);
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.5rem, 1.2vw, 1rem);
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1.8px;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      transform 0.25s ease;
+  }
+
+  .site-header .nav-desktop .nav-links-right #en-btn:hover {
+    background-color: var(--orange);
+    color: var(--bg-color);
+    transform: translateY(-1px);
+  }
+
+  .site-header .nav-desktop .nav-links-right #order-btn {
+    cursor: pointer;
+    padding: 0;
+    border-radius: 5px;
+    border: 1.8px solid var(--orange);
+    background-color: var(--bg-color);
+    transition:
+      background-color 0.3s ease,
+      transform 0.25s ease;
+  }
+
+  .site-header .nav-desktop .nav-links-right #order-btn a {
+    display: block;
+    padding: 8px 20px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.5rem, 1.2vw, 1rem);
+    text-decoration: none;
+    color: var(--orange);
+    background: transparent !important;
+    transition: color 0.3s ease;
+  }
+
+  .site-header .nav-desktop .nav-links-right #order-btn:hover {
+    background-color: var(--orange);
+    transform: translateY(-1px);
+  }
+
+  .site-header .nav-desktop .nav-links-right #order-btn:hover a {
+    color: var(--bg-color);
+  }
+}
+
+/* ===== Footer ===== */
+
+.site-footer {
+  background-color: var(--orange);
+  padding: 3em 2em 5em;
+}
+
+.site-footer h5 {
+  color: var(--bg-color);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: 0.5em;
+  font-weight: 500;
+}
+
+.site-footer p {
+  color: var(--bg-color);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin-bottom: 0.3em;
+}
+
+.site-footer iframe {
+  width: 100%;
+  height: 200px;
+  border: 0;
+  border-radius: 5px;
+  margin: 3em 0;
+}
+
+.site-footer .contact-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 0;
+}
+
+.site-footer .contact-info section li {
+  list-style-type: none;
+  margin-bottom: 0.5em;
+}
+
+.site-footer .contact-info section a {
+  color: var(--bg-color);
+  font-family: Phudu, sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  text-decoration: none;
+}
+
+.site-footer .contact-info section a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .site-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 7em;
+  }
+
+  .site-footer h5 {
+    font-size: clamp(1.5rem, 2vw, 2.5rem);
+    font-weight: 500;
+  }
+
+  .site-footer p {
+    font-size: clamp(1rem, 1.25vw, 1.5rem);
+  }
+
+  .site-footer iframe {
+    width: 100%;
+    height: 300px;
+    border: 1px solid var(--black);
+    border-radius: 8px;
+    margin: 0;
+  }
+
+  .site-footer .contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-top: 0;
+  }
+}

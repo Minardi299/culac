@@ -1,0 +1,58 @@
+/* ===== FAQ page (ported from culac.ca FrFAQ) ===== */
+
+.page-faq .wordpress {
+  background-color: var(--bg-color);
+  padding: 3rem 0;
+}
+
+.page-faq .wordpress h1 {
+  display: block;
+  text-align: center;
+  font-size: clamp(2rem, 3vw, 3.5rem);
+  font-weight: 500;
+  color: var(--orange);
+  margin-bottom: 1rem;
+  animation: fly-up ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 55%;
+  opacity: 0;
+}
+
+.page-faq .wordpress .wp-content {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.page-faq .wordpress p {
+  font-size: clamp(0.9rem, 1vw, 1.25rem);
+  text-align: left;
+  margin: 1em 3em 3em;
+}
+
+@media (min-width: 768px) {
+  .page-faq .wordpress {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .page-faq .wordpress h1 {
+    text-align: center;
+    margin: 2rem;
+    margin-top: 3rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  .page-faq .wordpress .wp-content {
+    place-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  .page-faq .wordpress p {
+    font-size: clamp(1rem, 1vw, 1.25rem);
+    max-width: 50ch;
+    margin: 1em 0 2em;
+    line-height: 1.4;
+  }
+}

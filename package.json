@@ -1,0 +1,29 @@
+{
+  "name": "culac-website",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "react-router dev",
+    "build": "tsc -b && react-router build && cp build/client/__spa-fallback.html build/client/404.html",
+    "lint": "oxlint",
+    "preview": "python3 -m http.server 4173 -d build/client"
+  },
+  "dependencies": {
+    "@react-router/node": "7.18.2",
+    "isbot": "^5",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router": "^7.18.2"
+  },
+  "devDependencies": {
+    "@react-router/dev": "^7.18.2",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "oxlint": "^1.75.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0"
+  },
+  "packageManager": "pnpm@10.33.0"
+}
